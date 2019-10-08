@@ -146,3 +146,31 @@ Humanoid.prototype.greet = function() {
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+// Villain
+function Villian(vilAttr) {
+  this.isVillain = vilAttr.isVillain;
+  Humanoid.call(this, vilAttr);
+};
+
+Villian.prototype = Object.create(Humanoid.prototype);
+
+Villian.prototype.checkIfVillian = function() {
+  if(this.isVillian) {
+    return 'I\'m the villian of this story!';
+  }
+};
+
+// Hero
+function Hero(herAttr) {
+  this.isHero = herAttr.isHero;
+  Humanoid.call(this, herAttr);
+};
+
+Hero.prototype = Object.create(Humanoid.prototype);
+
+Hero.prototype.checkIfHero = function() {
+  if(this.isHero) {
+    return 'I\'m the brave hero of this story!';
+  }
+};
